@@ -38,7 +38,7 @@ WORKDIR /app
 RUN yarn install
 
 # Cleanup
-RUN apt-get purge -y --auto-remove gcc libc6-dev make
+RUN apt-get purge -y --auto-remove gcc libc6-dev make git*
 RUN yarn cache clean
 
 # add late to limit cache-busting by modifications

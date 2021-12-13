@@ -37,6 +37,10 @@ COPY global        /app/global
 WORKDIR /app
 RUN yarn install
 
+# Cleanup
+RUN apt-get purge -y --auto-remove gcc libc6-dev make
+RUN yarn cache clean
+
 # add late to limit cache-busting by modifications
 COPY docker/rootfs /
 
